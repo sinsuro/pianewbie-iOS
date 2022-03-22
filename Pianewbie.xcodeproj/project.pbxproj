@@ -16,6 +16,8 @@
 		3337B6E927CFCFB000FD5B3A /* PianewbieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6E827CFCFB000FD5B3A /* PianewbieTests.swift */; };
 		3337B6F327CFCFB000FD5B3A /* PianewbieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6F227CFCFB000FD5B3A /* PianewbieUITests.swift */; };
 		3337B6F527CFCFB000FD5B3A /* PianewbieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6F427CFCFB000FD5B3A /* PianewbieUITestsLaunchTests.swift */; };
+		334461B027E82EB500AF4B8A /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 334461AF27E82EB500AF4B8A /* AudioKitUI */; };
+		334461B227E82EEE00AF4B8A /* PianoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334461B127E82EEE00AF4B8A /* PianoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		3337B6EE27CFCFB000FD5B3A /* PianewbieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PianewbieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3337B6F227CFCFB000FD5B3A /* PianewbieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianewbieUITests.swift; sourceTree = "<group>"; };
 		3337B6F427CFCFB000FD5B3A /* PianewbieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianewbieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		334461B127E82EEE00AF4B8A /* PianoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				334461B027E82EB500AF4B8A /* AudioKitUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +110,7 @@
 				3337B6DA27CFCFB000FD5B3A /* Assets.xcassets */,
 				3337B6DC27CFCFB000FD5B3A /* LaunchScreen.storyboard */,
 				3337B6DF27CFCFB000FD5B3A /* Info.plist */,
+				334461B127E82EEE00AF4B8A /* PianoViewController.swift */,
 			);
 			path = Pianewbie;
 			sourceTree = "<group>";
@@ -143,6 +148,9 @@
 			dependencies = (
 			);
 			name = Pianewbie;
+			packageProductDependencies = (
+				334461AF27E82EB500AF4B8A /* AudioKitUI */,
+			);
 			productName = Pianewbie;
 			productReference = 3337B6CE27CFCFAE00FD5B3A /* Pianewbie.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 3337B6C527CFCFAE00FD5B3A;
+			packageReferences = (
+				334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+			);
 			productRefGroup = 3337B6CF27CFCFAE00FD5B3A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +271,7 @@
 			files = (
 				3337B6D627CFCFAE00FD5B3A /* ViewController.swift in Sources */,
 				3337B6D227CFCFAE00FD5B3A /* AppDelegate.swift in Sources */,
+				334461B227E82EEE00AF4B8A /* PianoViewController.swift in Sources */,
 				3337B6D427CFCFAE00FD5B3A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +386,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -428,6 +441,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -624,6 +638,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		334461AF27E82EB500AF4B8A /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3337B6C627CFCFAE00FD5B3A /* Project object */;
 }

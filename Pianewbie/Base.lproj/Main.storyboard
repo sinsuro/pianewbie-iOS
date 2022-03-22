@@ -1,24 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1j4-Bf-KD6">
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Piano View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PianoViewController" customModule="Pianewbie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="904" height="269"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45d-Pa-1nm">
+                                <rect key="frame" x="0.0" y="0.0" width="904" height="269"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNO-80-l65">
+                                        <rect key="frame" x="0.0" y="0.0" width="2712" height="249"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="yNO-80-l65" firstAttribute="trailing" secondItem="uqy-10-qoU" secondAttribute="trailing" id="BIh-Kc-og7"/>
+                                    <constraint firstItem="yNO-80-l65" firstAttribute="width" secondItem="iq6-Sd-IIa" secondAttribute="width" multiplier="3" id="JoR-Wv-RFa"/>
+                                    <constraint firstItem="yNO-80-l65" firstAttribute="bottom" secondItem="uqy-10-qoU" secondAttribute="bottom" id="OeW-g8-iKW"/>
+                                    <constraint firstItem="yNO-80-l65" firstAttribute="top" secondItem="uqy-10-qoU" secondAttribute="top" id="RLq-AC-uEC"/>
+                                    <constraint firstItem="yNO-80-l65" firstAttribute="leading" secondItem="uqy-10-qoU" secondAttribute="leading" id="Ryg-gL-D5Z"/>
+                                    <constraint firstItem="yNO-80-l65" firstAttribute="height" secondItem="iq6-Sd-IIa" secondAttribute="height" id="WQE-WC-dnf"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="uqy-10-qoU"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="iq6-Sd-IIa"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="45d-Pa-1nm" secondAttribute="bottom" id="ZSu-ef-ab7"/>
+                            <constraint firstItem="45d-Pa-1nm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eGw-AP-w61"/>
+                            <constraint firstItem="45d-Pa-1nm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gyg-Ph-HFi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="45d-Pa-1nm" secondAttribute="trailing" id="wae-Ky-IPC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Piano" destination="8bC-Xf-vdC" id="SLc-kf-IEm"/>
+                        <outlet property="keyboardScrollView" destination="yNO-80-l65" id="nxS-eX-2PU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="175.78125" y="599.34114202049773"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GJm-GP-FIH">
+            <objects>
+                <viewController id="1j4-Bf-KD6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lEd-N3-ab5">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5q-fe-mLy">
+                                <rect key="frame" x="60" y="1037" width="904" height="269"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="embed" id="uyz-FT-q3d"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="j8U-c9-DcF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="j8U-c9-DcF" firstAttribute="trailing" secondItem="v5q-fe-mLy" secondAttribute="trailing" constant="60" id="8fm-m7-56l"/>
+                            <constraint firstItem="j8U-c9-DcF" firstAttribute="bottom" secondItem="v5q-fe-mLy" secondAttribute="bottom" constant="60" id="Mye-Bh-DLW"/>
+                            <constraint firstItem="v5q-fe-mLy" firstAttribute="leading" secondItem="j8U-c9-DcF" secondAttribute="leading" constant="60" id="NEW-78-6sv"/>
+                            <constraint firstItem="v5q-fe-mLy" firstAttribute="height" secondItem="j8U-c9-DcF" secondAttribute="height" multiplier="0.2" id="Uxo-4k-Cf4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rFh-su-x6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-545" y="600"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
