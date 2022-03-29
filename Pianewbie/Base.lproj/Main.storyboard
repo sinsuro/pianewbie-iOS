@@ -39,8 +39,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-Rw-HeT">
                                 <rect key="frame" x="18" y="676" width="1330" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="View for midi controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-5a-Rx2">
-                                        <rect key="frame" x="626" y="50" width="176" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View for midi controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-5a-Rx2">
+                                        <rect key="frame" x="577" y="49.5" width="176" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="67v-Rt-GXs"/>
+                                            <constraint firstAttribute="width" constant="176" id="Jc3-PW-spS"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -66,17 +70,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehV-Cl-eqI">
                                 <rect key="frame" x="18" y="79" width="1330" height="555"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="View for piano sheets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMy-C7-HaX">
-                                        <rect key="frame" x="626" y="257" width="164" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View for piano sheets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMy-C7-HaX">
+                                        <rect key="frame" x="583" y="267" width="164" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="164" id="HbI-Ot-Ndt"/>
+                                            <constraint firstAttribute="height" constant="21" id="ccf-YQ-M1t"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Yu-X6-lxg">
+                                        <rect key="frame" x="12" y="18" width="1306" height="223"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-1h-4mK">
+                                        <rect key="frame" x="12" y="314" width="1306" height="223"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5Yu-X6-lxg" secondAttribute="trailing" constant="12" id="3te-r2-eF5"/>
                                     <constraint firstItem="ZMy-C7-HaX" firstAttribute="centerX" secondItem="ehV-Cl-eqI" secondAttribute="centerX" id="8s9-gu-0xz"/>
+                                    <constraint firstItem="5Yu-X6-lxg" firstAttribute="top" secondItem="ehV-Cl-eqI" secondAttribute="top" constant="18" id="KC0-GX-BZr"/>
+                                    <constraint firstItem="bYF-1h-4mK" firstAttribute="leading" secondItem="ehV-Cl-eqI" secondAttribute="leading" constant="12" id="SAt-p2-qYA"/>
+                                    <constraint firstItem="5Yu-X6-lxg" firstAttribute="leading" secondItem="ehV-Cl-eqI" secondAttribute="leading" constant="12" id="UMb-m6-DM4"/>
+                                    <constraint firstAttribute="bottom" secondItem="bYF-1h-4mK" secondAttribute="bottom" constant="18" id="Y4U-MS-8j1"/>
+                                    <constraint firstItem="bYF-1h-4mK" firstAttribute="height" secondItem="5Yu-X6-lxg" secondAttribute="height" id="aTX-EX-T9Z"/>
+                                    <constraint firstItem="5Yu-X6-lxg" firstAttribute="height" secondItem="ehV-Cl-eqI" secondAttribute="height" multiplier="0.4" constant="1" id="cvn-PH-uaX"/>
                                     <constraint firstItem="ZMy-C7-HaX" firstAttribute="centerY" secondItem="ehV-Cl-eqI" secondAttribute="centerY" id="oRO-b6-aI0"/>
+                                    <constraint firstAttribute="trailing" secondItem="bYF-1h-4mK" secondAttribute="trailing" constant="12" id="olX-rx-jBy"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -99,10 +123,26 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pianewbie" id="HrR-uS-m2F">
-                        <barButtonItem key="leftBarButtonItem" title="item" image="doc.badge.plus" catalog="system" id="JNd-Z4-20i"/>
+                        <barButtonItem key="leftBarButtonItem" title="item" image="doc.badge.plus" catalog="system" id="JNd-Z4-20i">
+                            <connections>
+                                <segue destination="sDh-I5-gi0" kind="presentation" id="B8k-0X-0LV"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="gearshape" catalog="system" id="ixC-Ol-mDo"/>
-                            <barButtonItem title="Item" image="pianokeys" catalog="system" id="2zN-x9-JW0"/>
+                            <barButtonItem title="Item" image="gearshape" catalog="system" id="ixC-Ol-mDo">
+                                <connections>
+                                    <segue destination="aYw-T2-xLg" kind="popoverPresentation" popoverAnchorBarButtonItem="ixC-Ol-mDo" id="C7W-zC-dgQ">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="pianokeys" catalog="system" id="2zN-x9-JW0">
+                                <connections>
+                                    <segue destination="Bms-Ku-KGE" kind="popoverPresentation" popoverAnchorBarButtonItem="2zN-x9-JW0" id="rhQ-Fr-J9A">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -114,6 +154,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFh-su-x6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="147.58418740849194" y="600"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QRD-Zn-phc">
+            <objects>
+                <viewController id="aYw-T2-xLg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ytQ-wv-WOc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WnU-eJ-Iin"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGj-4R-5Oa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="-41"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TLm-l4-5gR">
+            <objects>
+                <viewController id="Bms-Ku-KGE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ulf-oi-X84">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IAR-eg-7HJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KgV-rd-e00" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="600"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Qar-2y-n8A">
+            <objects>
+                <viewController id="sDh-I5-gi0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9jY-QA-Pcl">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mYX-wT-Pzx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ITf-5h-3SA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="1262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SI6-vE-ZSA">
@@ -143,6 +228,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
