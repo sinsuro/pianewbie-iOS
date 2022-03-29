@@ -13,37 +13,27 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var tmpScrollView: UIScrollView!
     @IBOutlet weak var tmpView: UIView!
-    @IBOutlet weak var tmpLabel: UILabel!
     @IBOutlet weak var ScrollSlider: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        let keyboard = KeyboardView.init(width: 3760, height: 200, firstOctave: 3, octaveCount: 11, polyphonic: false)
+        let keyboard = KeyboardView.init(width: 3760, height: 200, firstOctave: 1, octaveCount: 11, polyphonic: false)
         keyboard.prepareForInterfaceBuilder()
-        keyboard.draw(CGRect(x: 100, y: 600, width: 120, height: 120))
+        keyboard.draw(CGRect(x: 0, y: 0, width: 3760, height: 200))
         
-//        let k2 = KeyboardView(width: 500, height: 200)
         self.tmpView.addSubview(keyboard)
         self.tmpView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tmpLabel.text = String(ScrollSlider.value)
         // Do any additional setup after loading the view.
         
     }
     
 
     @IBAction func SliderResponser(_ sender: Any) {
-        tmpLabel.text = String(ScrollSlider.value)
-        
-        let KeyboardVC = self.storyboard?.instantiateViewController(withIdentifier: "PianoViewController") as! PianoViewController
-        
-        let scrollPoint = CGPoint(x: Int(ScrollSlider.value)*10, y: 0)
+        let scrollPoint = CGPoint(x: Int(ScrollSlider.value)*120/10, y: 0)
         //OR
-        //let bottomOffset = CGPoint(x: 0, y: scrollView.frame.maxY)
+//        let scrollPoint = CGPoint(x: Int(ScrollSlider.value*tmpView.frame.maxX/10), y: 0)
         tmpScrollView.setContentOffset(scrollPoint, animated: false)
-
-        
-        print(scrollPoint)
 
 //        KeyboardVC.scrollRatio = ScrollSlider.value
 //        KeyboardVC.scrollEvent(Value: ScrollSlider.value)
