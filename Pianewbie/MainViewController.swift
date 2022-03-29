@@ -11,9 +11,15 @@ import AudioKitUI
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var tmpScrollView: UIScrollView!
-    @IBOutlet weak var tmpView: UIView!
+    @IBOutlet weak var KeyboardScrollView: UIScrollView!
+    @IBOutlet weak var KeyboardContentView: UIView!
     @IBOutlet weak var ScrollSlider: UISlider!
+    @IBOutlet weak var TopSheetView: UIImageView!
+    @IBOutlet weak var BottomSheetView: UIImageView!
+    @IBOutlet weak var MIDIContollerView: UIView!
+    @IBOutlet weak var SheetBackground: UIView!
+    @IBOutlet weak var HighlightSection: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,18 +28,38 @@ class MainViewController: UIViewController {
         keyboard.prepareForInterfaceBuilder()
         keyboard.draw(CGRect(x: 0, y: 0, width: 3760, height: 200))
         
-        self.tmpView.addSubview(keyboard)
-        self.tmpView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.KeyboardScrollView.addSubview(keyboard)
+        self.KeyboardScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         // Do any additional setup after loading the view.
+        
+        self.SheetBackground.layer.cornerRadius = 15
+        self.SheetBackground.layer.shadowColor = UIColor.gray.cgColor
+        self.SheetBackground.layer.shadowRadius = 15
+        self.SheetBackground.layer.shadowOffset = CGSize(width: 0, height: 10)
+        self.SheetBackground.layer.shadowOpacity = 0.2
+        
+        self.MIDIContollerView.layer.cornerRadius = 15
+        self.MIDIContollerView.layer.shadowColor = UIColor.gray.cgColor
+        self.MIDIContollerView.layer.shadowRadius = 15
+        self.MIDIContollerView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        self.MIDIContollerView.layer.shadowOpacity = 0.2
+        
+        self.HighlightSection.layer.cornerRadius = 30
+        
+//        self.KeyboardScrollView.layer.cornerRadius = 15
+//        self.KeyboardScrollView.layer.shadowColor = UIColor.gray.cgColor
+//        self.KeyboardScrollView.layer.shadowRadius = 15
+//        self.KeyboardScrollView.layer.shadowOffset = CGSize(width: 0, height: 10)
+//        self.KeyboardScrollView.layer.shadowOpacity = 0.2
         
     }
     
 
     @IBAction func SliderResponser(_ sender: Any) {
-        let scrollPoint = CGPoint(x: Int(ScrollSlider.value)*120/10, y: 0)
+        let scrollPoint = CGPoint(x: Int(ScrollSlider.value) * 120 / 10, y: 0)
         //OR
 //        let scrollPoint = CGPoint(x: Int(ScrollSlider.value*tmpView.frame.maxX/10), y: 0)
-        tmpScrollView.setContentOffset(scrollPoint, animated: false)
+        KeyboardScrollView.setContentOffset(scrollPoint, animated: false)
 
 //        KeyboardVC.scrollRatio = ScrollSlider.value
 //        KeyboardVC.scrollEvent(Value: ScrollSlider.value)
