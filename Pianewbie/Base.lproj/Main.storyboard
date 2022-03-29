@@ -11,7 +11,7 @@
         <!--Piano View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PianoViewController" customModule="Pianewbie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PianoViewController" id="BYZ-38-t0r" customClass="PianoViewController" customModule="Pianewbie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="904" height="269"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,18 +46,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="BackgroundScrollView" destination="45d-Pa-1nm" id="w2i-JP-82s"/>
                         <outlet property="Piano" destination="8bC-Xf-vdC" id="SLc-kf-IEm"/>
                         <outlet property="keyboardScrollView" destination="yNO-80-l65" id="nxS-eX-2PU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175.78125" y="599.34114202049773"/>
+            <point key="canvasLocation" x="176" y="759"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="GJm-GP-FIH">
             <objects>
-                <viewController id="1j4-Bf-KD6" sceneMemberID="viewController">
+                <viewController id="1j4-Bf-KD6" customClass="MainViewController" customModule="Pianewbie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lEd-N3-ab5">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,20 +69,74 @@
                                     <segue destination="BYZ-38-t0r" kind="embed" id="uyz-FT-q3d"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-Rw-HeT">
+                                <rect key="frame" x="60" y="878.5" width="904" height="107.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="W1O-bF-QDd">
+                                <rect key="frame" x="58" y="796" width="908" height="31"/>
+                                <color key="tintColor" red="0.89411771299999998" green="0.89411771299999998" blue="0.90196073060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="SliderResponser:" destination="1j4-Bf-KD6" eventType="valueChanged" id="bbi-Mo-kfC"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqW-o0-W6A">
+                                <rect key="frame" x="491" y="495" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6z0-ae-DVR">
+                                <rect key="frame" x="10" y="30" width="1004" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJZ-yX-flj">
+                                        <rect key="frame" x="8" y="-8" width="1004" height="200"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="leading" secondItem="9vN-Gf-SjO" secondAttribute="leading" constant="8" id="HHs-mo-oS4"/>
+                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="trailing" secondItem="9vN-Gf-SjO" secondAttribute="trailing" constant="248" id="U5L-Zk-f1F"/>
+                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="bottom" secondItem="9vN-Gf-SjO" secondAttribute="bottom" constant="120" id="VRh-6w-gFA"/>
+                                    <constraint firstAttribute="height" constant="200" id="cqp-k6-R3g"/>
+                                    <constraint firstItem="9vN-Gf-SjO" firstAttribute="top" secondItem="cJZ-yX-flj" secondAttribute="top" constant="8" id="fF0-Ns-fcP"/>
+                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="height" secondItem="ayl-Yv-YjT" secondAttribute="height" id="jrY-al-qgH"/>
+                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="width" secondItem="ayl-Yv-YjT" secondAttribute="width" id="mb9-3e-dva"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="9vN-Gf-SjO"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ayl-Yv-YjT"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j8U-c9-DcF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6z0-ae-DVR" firstAttribute="top" secondItem="j8U-c9-DcF" secondAttribute="top" constant="10" id="1Fq-Yu-j71"/>
+                            <constraint firstItem="j8U-c9-DcF" firstAttribute="trailing" secondItem="6z0-ae-DVR" secondAttribute="trailing" constant="10" id="2Vf-al-PEJ"/>
+                            <constraint firstItem="6z0-ae-DVR" firstAttribute="leading" secondItem="j8U-c9-DcF" secondAttribute="leading" constant="10" id="60r-y5-VHZ"/>
+                            <constraint firstItem="j8U-c9-DcF" firstAttribute="trailing" secondItem="W1O-bF-QDd" secondAttribute="trailing" constant="60" id="6zP-IG-FCi"/>
                             <constraint firstItem="j8U-c9-DcF" firstAttribute="trailing" secondItem="v5q-fe-mLy" secondAttribute="trailing" constant="60" id="8fm-m7-56l"/>
+                            <constraint firstItem="W1O-bF-QDd" firstAttribute="leading" secondItem="j8U-c9-DcF" secondAttribute="leading" constant="60" id="HXh-Ey-NQS"/>
+                            <constraint firstItem="e8A-Rw-HeT" firstAttribute="height" secondItem="j8U-c9-DcF" secondAttribute="height" multiplier="0.08" id="Ha1-xi-2yA"/>
+                            <constraint firstItem="e8A-Rw-HeT" firstAttribute="bottom" secondItem="v5q-fe-mLy" secondAttribute="bottom" constant="-320" id="Lmc-o6-r4b"/>
                             <constraint firstItem="j8U-c9-DcF" firstAttribute="bottom" secondItem="v5q-fe-mLy" secondAttribute="bottom" constant="60" id="Mye-Bh-DLW"/>
                             <constraint firstItem="v5q-fe-mLy" firstAttribute="leading" secondItem="j8U-c9-DcF" secondAttribute="leading" constant="60" id="NEW-78-6sv"/>
                             <constraint firstItem="v5q-fe-mLy" firstAttribute="height" secondItem="j8U-c9-DcF" secondAttribute="height" multiplier="0.2" id="Uxo-4k-Cf4"/>
+                            <constraint firstItem="e8A-Rw-HeT" firstAttribute="leading" secondItem="j8U-c9-DcF" secondAttribute="leading" constant="60" id="Xq5-g2-F21"/>
+                            <constraint firstItem="mqW-o0-W6A" firstAttribute="leading" secondItem="j8U-c9-DcF" secondAttribute="leading" constant="491" id="YyN-Qf-828"/>
+                            <constraint firstItem="W1O-bF-QDd" firstAttribute="bottom" secondItem="e8A-Rw-HeT" secondAttribute="bottom" constant="-160" id="rZU-cr-9Pc"/>
+                            <constraint firstItem="mqW-o0-W6A" firstAttribute="top" secondItem="j8U-c9-DcF" secondAttribute="top" constant="475" id="zax-sG-ccX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ScrollSlider" destination="W1O-bF-QDd" id="6Fh-LJ-JFZ"/>
+                        <outlet property="tmpLabel" destination="mqW-o0-W6A" id="W1i-e4-QYK"/>
+                        <outlet property="tmpScrollView" destination="6z0-ae-DVR" id="fbo-yu-chz"/>
+                        <outlet property="tmpView" destination="cJZ-yX-flj" id="f8x-qQ-saq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFh-su-x6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-545" y="600"/>
+            <point key="canvasLocation" x="-545.5078125" y="600"/>
         </scene>
     </scenes>
     <resources>

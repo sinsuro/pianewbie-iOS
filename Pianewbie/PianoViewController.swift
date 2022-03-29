@@ -13,6 +13,10 @@ class PianoViewController: UIViewController {
 
     @IBOutlet weak var keyboardScrollView: UIView!
     @IBOutlet var Piano: UIView!
+    @IBOutlet weak var BackgroundScrollView: UIScrollView!
+    
+    var scrollRatio : Float = 0.5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,11 +26,16 @@ class PianoViewController: UIViewController {
         
 //        let k2 = KeyboardView(width: 500, height: 200)
         self.keyboardScrollView.addSubview(keyboard)
+        self.keyboardScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        self.view.addSubview(keyboard)
         
         // Do any additional setup after loading the view.
     }
-    
+//
+//    func scrollEvent(Value : Float) {
+//        let frameWidth : Float = Float(self.view.frame.width)
+//        BackgroundScrollView.setContentOffset(CGPoint(x: Int(frameWidth * Value), y: 0), animated: true)
+//    }
 
     /*
     // MARK: - Navigation
