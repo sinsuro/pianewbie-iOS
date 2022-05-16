@@ -18,6 +18,8 @@
 		3337B6F527CFCFB000FD5B3A /* PianewbieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6F427CFCFB000FD5B3A /* PianewbieUITestsLaunchTests.swift */; };
 		334461B027E82EB500AF4B8A /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 334461AF27E82EB500AF4B8A /* AudioKitUI */; };
 		334461B627E9529000AF4B8A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334461B527E9529000AF4B8A /* MainViewController.swift */; };
+		33930416281784590029A5C9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33930415281784590029A5C9 /* API.swift */; };
+		33930419281784880029A5C9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 33930418281784880029A5C9 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		3337B6F227CFCFB000FD5B3A /* PianewbieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianewbieUITests.swift; sourceTree = "<group>"; };
 		3337B6F427CFCFB000FD5B3A /* PianewbieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PianewbieUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		334461B527E9529000AF4B8A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		33930415281784590029A5C9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334461B027E82EB500AF4B8A /* AudioKitUI in Frameworks */,
+				33930419281784880029A5C9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +115,7 @@
 				3337B6DC27CFCFB000FD5B3A /* LaunchScreen.storyboard */,
 				3337B6DF27CFCFB000FD5B3A /* Info.plist */,
 				334461B527E9529000AF4B8A /* MainViewController.swift */,
+				33930415281784590029A5C9 /* API.swift */,
 			);
 			path = Pianewbie;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			name = Pianewbie;
 			packageProductDependencies = (
 				334461AF27E82EB500AF4B8A /* AudioKitUI */,
+				33930418281784880029A5C9 /* Alamofire */,
 			);
 			productName = Pianewbie;
 			productReference = 3337B6CE27CFCFAE00FD5B3A /* Pianewbie.app */;
@@ -225,6 +231,7 @@
 			mainGroup = 3337B6C527CFCFAE00FD5B3A;
 			packageReferences = (
 				334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+				33930417281784880029A5C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3337B6CF27CFCFAE00FD5B3A /* Products */;
 			projectDirPath = "";
@@ -273,6 +280,7 @@
 				3337B6D227CFCFAE00FD5B3A /* AppDelegate.swift in Sources */,
 				3337B6D427CFCFAE00FD5B3A /* SceneDelegate.swift in Sources */,
 				334461B627E9529000AF4B8A /* MainViewController.swift in Sources */,
+				33930416281784590029A5C9 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +656,14 @@
 				kind = branch;
 			};
 		};
+		33930417281784880029A5C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -655,6 +671,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */;
 			productName = AudioKitUI;
+		};
+		33930418281784880029A5C9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33930417281784880029A5C9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

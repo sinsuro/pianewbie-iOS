@@ -19,18 +19,34 @@ class MainViewController: UIViewController {
     @IBOutlet weak var MIDIContollerView: UIView!
     @IBOutlet weak var SheetBackground: UIView!
     @IBOutlet weak var HighlightSection: UIView!
+    @IBOutlet weak var MiniKeyboardView: UIView!
+    @IBOutlet weak var MiniKeyboardHighlight: UIView!
     
+    @IBOutlet weak var musicTitle: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        API_loadMusic(completion: {sucess, datasheet in
+            if sucess {
+                self.musicTitle.text = datasheet.info!.musicTitle! + " - " +  datasheet.info!.musicArtist!
+            }
+        }
+        )
         
-        let keyboard = KeyboardView.init(width: 3760, height: 200, firstOctave: 1, octaveCount: 11, polyphonic: false)
+        let keyboard = KeyboardView.init(width: 3600, height: 200, firstOctave: 1, octaveCount: 11, polyphonic: false)
         keyboard.prepareForInterfaceBuilder()
-        keyboard.draw(CGRect(x: 0, y: 0, width: 3760, height: 200))
+        keyboard.draw(CGRect(x: 0, y: 0, width: 3600, height: 200))
         
         self.KeyboardScrollView.addSubview(keyboard)
         self.KeyboardScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        // Do any additional setup after loading the view.
+        
+        let minikeyboard = KeyboardView.init(width: 600, height: 110, firstOctave: 1, octaveCount: 11, polyphonic: false)
+        minikeyboard.prepareForInterfaceBuilder()
+//        minikeyboard.draw(CGRect(x: 0, y: 0, width: 110, height: 100))
+        
+        self.MiniKeyboardView.addSubview(minikeyboard)
+        self.MiniKeyboardView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        self.MiniKeyboardView.addSubview(keyboard)
         
         self.SheetBackground.layer.cornerRadius = 15
         self.SheetBackground.layer.shadowColor = UIColor.gray.cgColor
@@ -51,18 +67,20 @@ class MainViewController: UIViewController {
 //        self.KeyboardScrollView.layer.shadowRadius = 15
 //        self.KeyboardScrollView.layer.shadowOffset = CGSize(width: 0, height: 10)
 //        self.KeyboardScrollView.layer.shadowOpacity = 0.2
+        var highlightMini = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 120))
+        self.view.addSubview(highlightMini)
+        
+        
         
     }
-    
 
     @IBAction func SliderResponser(_ sender: Any) {
         let scrollPoint = CGPoint(x: Int(ScrollSlider.value) * 120 / 10, y: 0)
-        //OR
-//        let scrollPoint = CGPoint(x: Int(ScrollSlider.value*tmpView.frame.maxX/10), y: 0)
         KeyboardScrollView.setContentOffset(scrollPoint, animated: false)
-
-//        KeyboardVC.scrollRatio = ScrollSlider.value
-//        KeyboardVC.scrollEvent(Value: ScrollSlider.value)
+        let miniX = self.MiniKeyboardView.frame.origin.x
+//        let miniPoint = CGPoint(x: Int(ScrollSlider.value) * 60 / 10 + Int(miniX), y: 0)
+//        MiniKeyboardHighlight.center = miniPoint
+//        self.highlightMini.frame = CGRect(x: Int(miniX), y: 0, width: 20, height: 20)
     }
     /*
     // MARK: - Navigation
