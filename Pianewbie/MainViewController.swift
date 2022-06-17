@@ -23,6 +23,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var MiniKeyboardHighlight: UIView!
     
     @IBOutlet weak var musicTitle: UILabel!
+    
+    var keyboard : KeyboardView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,12 +36,16 @@ class MainViewController: UIViewController {
         }
         )
         
-        let keyboard = KeyboardView.init(width: 3600, height: 200, firstOctave: 1, octaveCount: 11, polyphonic: false)
+        keyboard = KeyboardView.init(width: 3600, height: 200, firstOctave: 1, octaveCount: 11, polyphonic: false)
         keyboard.prepareForInterfaceBuilder()
         keyboard.draw(CGRect(x: 0, y: 0, width: 3600, height: 200))
+        keyboard.polyphonicMode = true
+        
+    
         
         self.KeyboardScrollView.addSubview(keyboard)
         self.KeyboardScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         
         let minikeyboard = KeyboardView.init(width: 600, height: 110, firstOctave: 1, octaveCount: 11, polyphonic: false)
         minikeyboard.prepareForInterfaceBuilder()
@@ -47,6 +54,8 @@ class MainViewController: UIViewController {
         self.MiniKeyboardView.addSubview(minikeyboard)
         self.MiniKeyboardView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 //        self.MiniKeyboardView.addSubview(keyboard)
+        
+        minikeyboard.programmaticNoteOn(3)
         
         self.SheetBackground.layer.cornerRadius = 15
         self.SheetBackground.layer.shadowColor = UIColor.gray.cgColor
@@ -72,8 +81,18 @@ class MainViewController: UIViewController {
         
         
         
+        
     }
-
+    @IBAction func testAction(_ sender: Any) {
+//        self.keyboard.programmaticNoteOn(3)
+        for i in 0..<30{
+            print("sd")
+            self.keyboard.programmaticNoteOn(MIDINoteNumber(5*i))
+            sleep(1)
+            self.keyboard.programmaticNoteOff(MIDINoteNumber(5*i))
+        }
+    }
+    
     @IBAction func SliderResponser(_ sender: Any) {
         let scrollPoint = CGPoint(x: Int(ScrollSlider.value) * 120 / 10, y: 0)
         KeyboardScrollView.setContentOffset(scrollPoint, animated: false)
@@ -82,14 +101,6 @@ class MainViewController: UIViewController {
 //        MiniKeyboardHighlight.center = miniPoint
 //        self.highlightMini.frame = CGRect(x: Int(miniX), y: 0, width: 20, height: 20)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
