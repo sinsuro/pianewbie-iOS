@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "0621eb572397597f815f6aa16b5955abca25f997"
+      }
+    },
+    {
+      "identity" : "audiokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/AudioKit.git",
+      "state" : {
+        "revision" : "86c9285d673baa7f7955e8f2c1550e5e9740bada",
+        "version" : "5.3.3"
+      }
+    },
+    {
+      "identity" : "audiokitui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/AudioKitUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6e68c1f213e1db3fd970fedd6d8923921d7189fd"
+      }
+    },
+    {
+      "identity" : "pianokeyboard",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/garynewby/PianoKeyboard.git",
+      "state" : {
+        "revision" : "5e540e88b621670ec405410c6a78dcb2d84de18e",
+        "version" : "1.0.26"
+      }
+    }
+  ],
+  "version" : 2
+}
