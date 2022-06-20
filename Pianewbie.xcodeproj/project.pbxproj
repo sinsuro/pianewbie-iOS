@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3319A2F7285C551C0046419A /* PianoKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 3319A2F6285C551C0046419A /* PianoKeyboard */; };
+		3319A2FB285C55760046419A /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3319A2FA285C55760046419A /* secondViewController.swift */; };
+		33268CA6285FF20600F7AC35 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268C9D285FF20500F7AC35 /* Sequence.swift */; };
+		33268CA7285FF20600F7AC35 /* PianoKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268C9E285FF20600F7AC35 /* PianoKeyboard.swift */; };
+		33268CA8285FF20600F7AC35 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268C9F285FF20600F7AC35 /* Note.swift */; };
+		33268CA9285FF20600F7AC35 /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268CA0285FF20600F7AC35 /* Demo.swift */; };
+		33268CAA285FF20600F7AC35 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268CA1285FF20600F7AC35 /* Extensions.swift */; };
+		33268CAB285FF20600F7AC35 /* FasciaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268CA2285FF20600F7AC35 /* FasciaView.swift */; };
+		33268CAC285FF20600F7AC35 /* NoteNameLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268CA3285FF20600F7AC35 /* NoteNameLayer.swift */; };
+		33268CAD285FF20600F7AC35 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268CA4285FF20600F7AC35 /* AudioEngine.swift */; };
+		33268CAE285FF20600F7AC35 /* PianoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33268CA5285FF20600F7AC35 /* PianoKey.swift */; };
+		33268CAF285FF52400F7AC35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3337B6DA27CFCFB000FD5B3A /* Assets.xcassets */; };
 		3337B6D227CFCFAE00FD5B3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6D127CFCFAE00FD5B3A /* AppDelegate.swift */; };
 		3337B6D427CFCFAE00FD5B3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6D327CFCFAE00FD5B3A /* SceneDelegate.swift */; };
 		3337B6D627CFCFAE00FD5B3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6D527CFCFAE00FD5B3A /* ViewController.swift */; };
 		3337B6D927CFCFAE00FD5B3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3337B6D727CFCFAE00FD5B3A /* Main.storyboard */; };
-		3337B6DB27CFCFB000FD5B3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3337B6DA27CFCFB000FD5B3A /* Assets.xcassets */; };
 		3337B6DE27CFCFB000FD5B3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3337B6DC27CFCFB000FD5B3A /* LaunchScreen.storyboard */; };
 		3337B6E927CFCFB000FD5B3A /* PianewbieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6E827CFCFB000FD5B3A /* PianewbieTests.swift */; };
 		3337B6F327CFCFB000FD5B3A /* PianewbieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337B6F227CFCFB000FD5B3A /* PianewbieUITests.swift */; };
@@ -40,6 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3319A2FA285C55760046419A /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		33268C9D285FF20500F7AC35 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
+		33268C9E285FF20600F7AC35 /* PianoKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoKeyboard.swift; sourceTree = "<group>"; };
+		33268C9F285FF20600F7AC35 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		33268CA0285FF20600F7AC35 /* Demo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
+		33268CA1285FF20600F7AC35 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		33268CA2285FF20600F7AC35 /* FasciaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FasciaView.swift; sourceTree = "<group>"; };
+		33268CA3285FF20600F7AC35 /* NoteNameLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteNameLayer.swift; sourceTree = "<group>"; };
+		33268CA4285FF20600F7AC35 /* AudioEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		33268CA5285FF20600F7AC35 /* PianoKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoKey.swift; sourceTree = "<group>"; };
 		3337B6CE27CFCFAE00FD5B3A /* Pianewbie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pianewbie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3337B6D127CFCFAE00FD5B3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3337B6D327CFCFAE00FD5B3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334461B027E82EB500AF4B8A /* AudioKitUI in Frameworks */,
+				3319A2F7285C551C0046419A /* PianoKeyboard in Frameworks */,
 				33930419281784880029A5C9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,8 +130,18 @@
 			isa = PBXGroup;
 			children = (
 				3337B6D127CFCFAE00FD5B3A /* AppDelegate.swift */,
+				33268CA4285FF20600F7AC35 /* AudioEngine.swift */,
+				33268CA0285FF20600F7AC35 /* Demo.swift */,
+				33268CA1285FF20600F7AC35 /* Extensions.swift */,
+				33268CA2285FF20600F7AC35 /* FasciaView.swift */,
+				33268C9F285FF20600F7AC35 /* Note.swift */,
+				33268CA3285FF20600F7AC35 /* NoteNameLayer.swift */,
+				33268CA5285FF20600F7AC35 /* PianoKey.swift */,
+				33268C9E285FF20600F7AC35 /* PianoKeyboard.swift */,
+				33268C9D285FF20500F7AC35 /* Sequence.swift */,
 				3337B6D327CFCFAE00FD5B3A /* SceneDelegate.swift */,
 				3337B6D527CFCFAE00FD5B3A /* ViewController.swift */,
+				3319A2FA285C55760046419A /* secondViewController.swift */,
 				3337B6D727CFCFAE00FD5B3A /* Main.storyboard */,
 				3337B6DA27CFCFB000FD5B3A /* Assets.xcassets */,
 				3337B6DC27CFCFB000FD5B3A /* LaunchScreen.storyboard */,
@@ -156,6 +188,7 @@
 			packageProductDependencies = (
 				334461AF27E82EB500AF4B8A /* AudioKitUI */,
 				33930418281784880029A5C9 /* Alamofire */,
+				3319A2F6285C551C0046419A /* PianoKeyboard */,
 			);
 			productName = Pianewbie;
 			productReference = 3337B6CE27CFCFAE00FD5B3A /* Pianewbie.app */;
@@ -232,6 +265,7 @@
 			packageReferences = (
 				334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */,
 				33930417281784880029A5C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3319A2F5285C551C0046419A /* XCRemoteSwiftPackageReference "PianoKeyboard" */,
 			);
 			productRefGroup = 3337B6CF27CFCFAE00FD5B3A /* Products */;
 			projectDirPath = "";
@@ -249,8 +283,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33268CAF285FF52400F7AC35 /* Assets.xcassets in Resources */,
 				3337B6DE27CFCFB000FD5B3A /* LaunchScreen.storyboard in Resources */,
-				3337B6DB27CFCFB000FD5B3A /* Assets.xcassets in Resources */,
 				3337B6D927CFCFAE00FD5B3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,9 +312,19 @@
 			files = (
 				3337B6D627CFCFAE00FD5B3A /* ViewController.swift in Sources */,
 				3337B6D227CFCFAE00FD5B3A /* AppDelegate.swift in Sources */,
+				33268CA6285FF20600F7AC35 /* Sequence.swift in Sources */,
 				3337B6D427CFCFAE00FD5B3A /* SceneDelegate.swift in Sources */,
+				33268CA9285FF20600F7AC35 /* Demo.swift in Sources */,
 				334461B627E9529000AF4B8A /* MainViewController.swift in Sources */,
+				33268CAC285FF20600F7AC35 /* NoteNameLayer.swift in Sources */,
+				33268CA8285FF20600F7AC35 /* Note.swift in Sources */,
+				33268CAA285FF20600F7AC35 /* Extensions.swift in Sources */,
+				33268CAE285FF20600F7AC35 /* PianoKey.swift in Sources */,
+				33268CAB285FF20600F7AC35 /* FasciaView.swift in Sources */,
+				3319A2FB285C55760046419A /* secondViewController.swift in Sources */,
+				33268CAD285FF20600F7AC35 /* AudioEngine.swift in Sources */,
 				33930416281784590029A5C9 /* API.swift in Sources */,
+				33268CA7285FF20600F7AC35 /* PianoKeyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +692,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3319A2F5285C551C0046419A /* XCRemoteSwiftPackageReference "PianoKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/garynewby/PianoKeyboard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKitUI";
@@ -667,6 +719,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3319A2F6285C551C0046419A /* PianoKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3319A2F5285C551C0046419A /* XCRemoteSwiftPackageReference "PianoKeyboard" */;
+			productName = PianoKeyboard;
+		};
 		334461AF27E82EB500AF4B8A /* AudioKitUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 334461AE27E82EB500AF4B8A /* XCRemoteSwiftPackageReference "AudioKitUI" */;

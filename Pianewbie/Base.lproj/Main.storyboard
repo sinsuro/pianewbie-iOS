@@ -20,19 +20,31 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z0-ae-DVR">
                                 <rect key="frame" x="24" y="800" width="1318" height="200"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJZ-yX-flj">
-                                        <rect key="frame" x="8" y="-8" width="1318" height="200"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sr-nt-1l8" userLabel="Keyboard" customClass="PianoKeyboard" customModule="newpianotest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="1318" height="200"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfKeys">
+                                                <integer key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="blackKeyWidth">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="blackKeyHeight">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showNotes" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="leading" secondItem="9vN-Gf-SjO" secondAttribute="leading" constant="8" id="HHs-mo-oS4"/>
-                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="trailing" secondItem="9vN-Gf-SjO" secondAttribute="trailing" constant="248" id="U5L-Zk-f1F"/>
-                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="bottom" secondItem="9vN-Gf-SjO" secondAttribute="bottom" constant="120" id="VRh-6w-gFA"/>
+                                    <constraint firstItem="9vN-Gf-SjO" firstAttribute="top" secondItem="7Sr-nt-1l8" secondAttribute="top" id="1B7-oM-d44"/>
+                                    <constraint firstItem="9vN-Gf-SjO" firstAttribute="leading" secondItem="7Sr-nt-1l8" secondAttribute="leading" id="Hb6-A3-YL9"/>
                                     <constraint firstAttribute="height" constant="200" id="cqp-k6-R3g"/>
-                                    <constraint firstItem="9vN-Gf-SjO" firstAttribute="top" secondItem="cJZ-yX-flj" secondAttribute="top" constant="8" id="fF0-Ns-fcP"/>
-                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="height" secondItem="ayl-Yv-YjT" secondAttribute="height" id="jrY-al-qgH"/>
-                                    <constraint firstItem="cJZ-yX-flj" firstAttribute="width" secondItem="ayl-Yv-YjT" secondAttribute="width" id="mb9-3e-dva"/>
+                                    <constraint firstItem="7Sr-nt-1l8" firstAttribute="height" secondItem="ayl-Yv-YjT" secondAttribute="height" id="msw-ap-DCY"/>
+                                    <constraint firstItem="7Sr-nt-1l8" firstAttribute="width" secondItem="ayl-Yv-YjT" secondAttribute="width" id="pa1-nr-HdI"/>
+                                    <constraint firstItem="7Sr-nt-1l8" firstAttribute="trailing" secondItem="9vN-Gf-SjO" secondAttribute="trailing" id="rMe-82-j1X"/>
+                                    <constraint firstItem="7Sr-nt-1l8" firstAttribute="bottom" secondItem="9vN-Gf-SjO" secondAttribute="bottom" id="sI4-kg-HDo"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="9vN-Gf-SjO"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ayl-Yv-YjT"/>
@@ -40,6 +52,117 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-Rw-HeT">
                                 <rect key="frame" x="24" y="620" width="1318" height="120"/>
                                 <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CCl-MI-88V" customClass="FasciaView" customModule="newpianotest" customModuleProvider="target">
+                                        <rect key="frame" x="-24" y="-185" width="1366" height="490"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dGf-x2-7ym">
+                                                <rect key="frame" x="20" y="20" width="214" height="80"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cZZ-h3-8hE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="214" height="32"/>
+                                                        <subviews>
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minimumValue="12" maximumValue="61" translatesAutoresizingMaskIntoConstraints="NO" id="Peb-cu-ZbO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="94" height="32"/>
+                                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                                <connections>
+                                                                    <action selector="keyNumberStepperTapped:" destination="1j4-Bf-KD6" eventType="valueChanged" id="KAn-GM-Yvo"/>
+                                                                </connections>
+                                                            </stepper>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Key count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5d-bi-Wf0">
+                                                                <rect key="frame" x="114" y="0.0" width="71.5" height="32"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdv-9x-0eg">
+                                                                <rect key="frame" x="205.5" y="0.0" width="8.5" height="32"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="N6N-FI-Wf6">
+                                                        <rect key="frame" x="0.0" y="48" width="214" height="32"/>
+                                                        <subviews>
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" maximumValue="96" stepValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="FoM-J9-2z4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="94" height="32"/>
+                                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                                <connections>
+                                                                    <action selector="octaveStepperTapped:" destination="1j4-Bf-KD6" eventType="valueChanged" id="s5y-RA-kxn"/>
+                                                                </connections>
+                                                            </stepper>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Octave:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZF-jL-pCw">
+                                                                <rect key="frame" x="114" y="0.0" width="71.5" height="32"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLu-tj-1Lv">
+                                                                <rect key="frame" x="205.5" y="0.0" width="8.5" height="32"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KQ5-ma-WRN">
+                                                <rect key="frame" x="1175.5" y="20" width="170.5" height="126"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qww-H2-K6u">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170.5" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show notes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcc-Uj-peC">
+                                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="31"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-vi-krO">
+                                                                <rect key="frame" x="121.5" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="showNotesTapped:" destination="1j4-Bf-KD6" eventType="valueChanged" id="lRv-tK-xD5"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fya-7j-Crn">
+                                                        <rect key="frame" x="0.0" y="47" width="170.5" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latch" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNr-yY-BBT" userLabel="Latch">
+                                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="31"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4ZD-yb-ash">
+                                                                <rect key="frame" x="121.5" y="0.0" width="51" height="31"/>
+                                                                <color key="onTintColor" systemColor="systemTealColor"/>
+                                                                <connections>
+                                                                    <action selector="latchTapped:" destination="1j4-Bf-KD6" eventType="valueChanged" id="UD4-85-O35"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PianoKeyboard" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-nh-6AI">
+                                                        <rect key="frame" x="0.0" y="94" width="170.5" height="32"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="KQ5-ma-WRN" secondAttribute="trailing" constant="20" id="6lj-PT-R0E"/>
+                                            <constraint firstItem="dGf-x2-7ym" firstAttribute="leading" secondItem="CCl-MI-88V" secondAttribute="leading" constant="20" id="FWg-Oa-VTu"/>
+                                            <constraint firstItem="dGf-x2-7ym" firstAttribute="top" secondItem="CCl-MI-88V" secondAttribute="top" constant="20" id="Wih-CC-WMm"/>
+                                            <constraint firstItem="KQ5-ma-WRN" firstAttribute="top" secondItem="CCl-MI-88V" secondAttribute="top" constant="20" id="gye-Aj-5Af"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9G-qg-DdI">
                                         <rect key="frame" x="39" y="5" width="600" height="110"/>
                                         <subviews>
@@ -63,9 +186,6 @@
                                                 <buttonConfiguration key="configuration" style="plain">
                                                     <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="testAction:" destination="1j4-Bf-KD6" eventType="touchUpInside" id="oMF-7C-HiV"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-ZO-9vP">
                                                 <rect key="frame" x="212" y="18" width="48" height="48"/>
@@ -111,6 +231,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="speaker.wave.2.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="muteToggleAction:" destination="1j4-Bf-KD6" eventType="touchUpInside" id="1u7-JY-yyX"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RI8-gk-e1j">
                                                 <rect key="frame" x="84" y="18" width="48" height="48"/>
@@ -278,7 +401,6 @@
                     <connections>
                         <outlet property="BottomSheetView" destination="bYF-1h-4mK" id="RyJ-9A-gcy"/>
                         <outlet property="HighlightSection" destination="UgP-Mj-GHu" id="ITq-FC-I05"/>
-                        <outlet property="KeyboardContentView" destination="cJZ-yX-flj" id="N4S-k2-sHM"/>
                         <outlet property="KeyboardScrollView" destination="6z0-ae-DVR" id="FaP-sJ-00d"/>
                         <outlet property="MIDIContollerView" destination="e8A-Rw-HeT" id="PpY-ka-E4u"/>
                         <outlet property="MiniKeyboardHighlight" destination="cju-PM-dzu" id="FhB-wN-weT"/>
@@ -286,7 +408,15 @@
                         <outlet property="ScrollSlider" destination="W1O-bF-QDd" id="6Fh-LJ-JFZ"/>
                         <outlet property="SheetBackground" destination="ehV-Cl-eqI" id="3Wl-rU-YZr"/>
                         <outlet property="TopSheetView" destination="5Yu-X6-lxg" id="zJL-iT-foW"/>
+                        <outlet property="fascia" destination="CCl-MI-88V" id="0UF-0i-GLd"/>
+                        <outlet property="keyNumberLabel" destination="bdv-9x-0eg" id="qWd-DZ-OdJ"/>
+                        <outlet property="keyNumberStepper" destination="Peb-cu-ZbO" id="7s3-UP-nEO"/>
+                        <outlet property="keyboard" destination="7Sr-nt-1l8" id="Vag-Eo-o2z"/>
+                        <outlet property="latchSwitch" destination="4ZD-yb-ash" id="2ih-jW-FTX"/>
                         <outlet property="musicTitle" destination="SDI-5a-Rx2" id="G6d-1q-lVB"/>
+                        <outlet property="octaveLabel" destination="KLu-tj-1Lv" id="zoo-zf-uNN"/>
+                        <outlet property="octaveStepper" destination="FoM-J9-2z4" id="oQx-zD-Duh"/>
+                        <outlet property="showNotesSwitch" destination="H2t-vi-krO" id="gia-az-neS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFh-su-x6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -349,7 +479,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="1j4-Bf-KD6" kind="relationship" relationship="rootViewController" id="I9r-18-gbv"/>
+                        <segue destination="1j4-Bf-KD6" kind="relationship" relationship="rootViewController" id="o6X-Re-tDg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cI9-sk-lYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -370,8 +500,14 @@
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="repeat" catalog="system" width="128" height="98"/>
         <image name="speaker.wave.2.fill" catalog="system" width="128" height="90"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

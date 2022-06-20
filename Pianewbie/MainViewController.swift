@@ -9,7 +9,7 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, PianoKeyboardDelegate {
 
     @IBOutlet weak var KeyboardScrollView: UIScrollView!
     @IBOutlet weak var KeyboardContentView: UIView!
@@ -24,10 +24,14 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var musicTitle: UILabel!
     
-    var keyboard : KeyboardView!
+//    var keyboard : KeyboardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        keyboard.octave = Int(48)
+        keyboard.numberOfKeys = Int(60)
 
         API_loadMusic(completion: {sucess, datasheet in
             if sucess {
@@ -36,26 +40,26 @@ class MainViewController: UIViewController {
         }
         )
         
-        keyboard = KeyboardView.init(width: 3600, height: 200, firstOctave: 1, octaveCount: 11, polyphonic: false)
-        keyboard.prepareForInterfaceBuilder()
-        keyboard.draw(CGRect(x: 0, y: 0, width: 3600, height: 200))
-        keyboard.polyphonicMode = true
+//        keyboard = KeyboardView.init(width: 3600, height: 200, firstOctave: 1, octaveCount: 11, polyphonic: false)
+//        keyboard.prepareForInterfaceBuilder()
+//        keyboard.draw(CGRect(x: 0, y: 0, width: 3600, height: 200))
+//        keyboard.polyphonicMode = true
         
     
         
-        self.KeyboardScrollView.addSubview(keyboard)
-        self.KeyboardScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        
-        let minikeyboard = KeyboardView.init(width: 600, height: 110, firstOctave: 1, octaveCount: 11, polyphonic: false)
-        minikeyboard.prepareForInterfaceBuilder()
-//        minikeyboard.draw(CGRect(x: 0, y: 0, width: 110, height: 100))
-        
-        self.MiniKeyboardView.addSubview(minikeyboard)
-        self.MiniKeyboardView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        self.MiniKeyboardView.addSubview(keyboard)
-        
-        minikeyboard.programmaticNoteOn(3)
+//        self.KeyboardScrollView.addSubview(keyboard)
+//        self.KeyboardScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//
+//
+//        let minikeyboard = KeyboardView.init(width: 600, height: 110, firstOctave: 1, octaveCount: 11, polyphonic: false)
+//        minikeyboard.prepareForInterfaceBuilder()
+////        minikeyboard.draw(CGRect(x: 0, y: 0, width: 110, height: 100))
+//
+//        self.MiniKeyboardView.addSubview(minikeyboard)
+//        self.MiniKeyboardView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+////        self.MiniKeyboardView.addSubview(keyboard)
+//
+//        minikeyboard.programmaticNoteOn(3)
         
         self.SheetBackground.layer.cornerRadius = 15
         self.SheetBackground.layer.shadowColor = UIColor.gray.cgColor
@@ -80,16 +84,44 @@ class MainViewController: UIViewController {
         self.view.addSubview(highlightMini)
         
         
+        //
         
+        demo = Demo(keyboard: keyboard)
+        keyboard.delegate = self
+
+        keyNumberLabel.text = String(Int(keyNumberStepper.value))
+        keyNumberLabel.accessibilityIdentifier = "keyNumberLabel"
+
+        keyNumberStepper.layer.cornerRadius = 8.0
+        keyNumberStepper.layer.masksToBounds = true
+        keyNumberStepper.value = Double(keyboard.numberOfKeys)
+        keyNumberStepper.accessibilityIdentifier = "keyNumberStepper"
+        keyNumberStepper.isAccessibilityElement = true
+
+        octaveLabel.text = String(Int(octaveStepper.value))
+        octaveLabel.accessibilityIdentifier = "octaveLabel"
+
+        octaveStepper.layer.cornerRadius = 8.0
+        octaveStepper.layer.masksToBounds = true
+        octaveStepper.accessibilityIdentifier = "octaveStepper"
+        octaveStepper.isAccessibilityElement = true
+
+        showNotesSwitch.subviews[0].subviews[0].backgroundColor = .gray
+        showNotesSwitch.accessibilityIdentifier = "showNotesSwitch"
+        showNotesSwitch.isAccessibilityElement = true
+
+        latchSwitch.subviews[0].subviews[0].backgroundColor = .gray
+        latchSwitch.accessibilityIdentifier = "latchSwitch"
+        latchSwitch.isAccessibilityElement = true
+
+//        audioEngine.start()
         
     }
-    @IBAction func testAction(_ sender: Any) {
-//        self.keyboard.programmaticNoteOn(3)
-        for i in 0..<30{
-            print("sd")
-            self.keyboard.programmaticNoteOn(MIDINoteNumber(5*i))
-            sleep(1)
-            self.keyboard.programmaticNoteOff(MIDINoteNumber(5*i))
+    @IBAction func muteToggleAction(_ sender: Any) {
+        if self.isMuted {
+            
+        } else {
+            audioEngine.start()
         }
     }
     
@@ -102,5 +134,54 @@ class MainViewController: UIViewController {
 //        self.highlightMini.frame = CGRect(x: Int(miniX), y: 0, width: 20, height: 20)
     }
     
+    @IBOutlet private var fascia: FasciaView!
+    @IBOutlet private var keyboard: PianoKeyboard!
+    @IBOutlet private var keyNumberStepper: UIStepper!
+    @IBOutlet private var keyNumberLabel: UILabel!
+    @IBOutlet private var octaveStepper: UIStepper!
+    @IBOutlet private var octaveLabel: UILabel!
+    @IBOutlet private var showNotesSwitch: UISwitch!
+    @IBOutlet private var latchSwitch: UISwitch!
 
+    private let audioEngine = AudioEngine()
+    private var demo: Demo?
+    private var isMuted : Bool = true
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+         demo?.notes()
+//        demo?.chords()
+    }
+    @IBAction func latchTapped(_ sender: Any) {
+        keyboard.toggleLatch()
+    }
+
+    @IBAction func showNotesTapped(_: Any) {
+        keyboard.toggleShowNotes()
+    }
+
+    @IBAction func keyNumberStepperTapped(_ sender: UIStepper) {
+        keyboard.numberOfKeys = Int(sender.value)
+        keyNumberLabel.text = String(Int(keyNumberStepper.value))
+    }
+
+    @IBAction func octaveStepperTapped(_ sender: UIStepper) {
+        keyboard.octave = Int(sender.value)
+        octaveLabel.text = String(Int(keyboard.octave))
+    }
+}
+
+extension MainViewController {
+    func pianoKeyDown(_ keyNumber: Int) {
+        audioEngine.sampler.startNote(UInt8(keyboard.octave + keyNumber), withVelocity: 64, onChannel: 0)
+    }
+
+    func pianoKeyUp(_ keyNumber: Int) {
+        audioEngine.sampler.stopNote(UInt8(keyboard.octave + keyNumber), onChannel: 0)
+    }
 }
