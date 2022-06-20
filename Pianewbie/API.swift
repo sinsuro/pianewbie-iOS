@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 struct Notes : Codable {
-    let noteNumber : Int?
+    let noteNames : String?
     let isNote : Bool? //True: Note , False: Rest
     let accidental : String?
     let size : Int? //1/2/4/8/16/32/64
@@ -47,10 +47,11 @@ struct SheetStruct : Codable {
     let data : SheetData?
 }
 
-let tmpNote = Notes(noteNumber: 0, isNote: true, accidental: "", size: 1, isDotted: false, x: 0.0, y: 0.0, pitch: [])
-let do_ = Notes(noteNumber: 0, isNote: true, accidental: "", size: 2, isDotted: false, x: 0.0, y: 0.0, pitch: [0])
-let rest_ = Notes(noteNumber: 1, isNote: false, accidental: "", size: 2, isDotted: false, x: 5.0, y: 0.0, pitch: [])
+let tmpNote = Notes(noteNames: "C4", isNote: true, accidental: "", size: 1, isDotted: false, x: 0.0, y: 0.0, pitch: [])
+let do_ = Notes(noteNames: "C4", isNote: true, accidental: "", size: 2, isDotted: false, x: 0.0, y: 0.0, pitch: [0])
+let rest_ = Notes(noteNames: "", isNote: false, accidental: "", size: 2, isDotted: false, x: 5.0, y: 0.0, pitch: [])
 let tmpMeasure = Measure(accidental: "", changingMeter: "", noteCount: 4, measureMinX: 0.0, measureMinY: 0.0, measureMaxX: 0.0, measureMaxY: 0.0, notes: [do_, rest_])
+let tmpMeasure2 = Measure(accidental: "", changingMeter: "", noteCount: 4, measureMinX: 0.0, measureMinY: 0.0, measureMaxX: 0.0, measureMaxY: 0.0, notes: [do_, rest_])
 let tmpInfo = MusicInfo(musicTitle: "music name", musicArtist: "artist", timeSignature: "4/4", keySignature: "###", tempo: 120, measureCount: 4)
 let tmpSheet = SheetData(info: tmpInfo, measures: [tmpMeasure,tmpMeasure,tmpMeasure,tmpMeasure])
 

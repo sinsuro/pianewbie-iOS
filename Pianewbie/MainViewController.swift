@@ -157,10 +157,24 @@ class MainViewController: UIViewController, PianoKeyboardDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-         demo?.notes()
+//         demo?.notes()
 //        demo?.chords()
         
     }
+    
+    private var playPoint : Int = 0
+    private var isPlaying : Bool = false
+    
+    @IBAction func playBtn(_ sender: Any) {
+        if isPlaying {
+            //pause
+        } else {
+            demo?.myPlay(playPoint: self.playPoint)
+        }
+    }
+    
+    
+    
     @IBAction func latchTapped(_ sender: Any) {
         keyboard.toggleLatch()
     }
