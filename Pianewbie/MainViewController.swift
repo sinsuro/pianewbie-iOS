@@ -30,8 +30,9 @@ class MainViewController: UIViewController, PianoKeyboardDelegate {
         super.viewDidLoad()
         
         
-        keyboard.octave = Int(48)
-        keyboard.numberOfKeys = Int(60)
+//        keyboard.octave = Int(48)
+//        keyboard.numberOfKeys = Int(60)
+        self.initKey(numofKeys: 60, numofOctave: 48)
 
         API_loadMusic(completion: {sucess, datasheet in
             if sucess {
@@ -114,15 +115,17 @@ class MainViewController: UIViewController, PianoKeyboardDelegate {
         latchSwitch.accessibilityIdentifier = "latchSwitch"
         latchSwitch.isAccessibilityElement = true
 
-//        audioEngine.start()
+        audioEngine.start()
         
     }
     @IBAction func muteToggleAction(_ sender: Any) {
-        if self.isMuted {
-            
-        } else {
-            audioEngine.start()
-        }
+//        if self.isMuted {
+//            audioEngine.start()
+//            self.isMuted = false
+//        } else {
+//            audioEngine.stop()
+//            self.isMuted = true
+//        }
     }
     
     @IBAction func SliderResponser(_ sender: Any) {
@@ -156,6 +159,7 @@ class MainViewController: UIViewController, PianoKeyboardDelegate {
 
          demo?.notes()
 //        demo?.chords()
+        
     }
     @IBAction func latchTapped(_ sender: Any) {
         keyboard.toggleLatch()
@@ -173,6 +177,13 @@ class MainViewController: UIViewController, PianoKeyboardDelegate {
     @IBAction func octaveStepperTapped(_ sender: UIStepper) {
         keyboard.octave = Int(sender.value)
         octaveLabel.text = String(Int(keyboard.octave))
+    }
+    
+    func initKey(numofKeys: Int, numofOctave: Int){
+        keyboard.numberOfKeys = numofKeys
+        keyNumberLabel.text = String(numofKeys)
+        keyboard.octave = numofOctave
+        octaveLabel.text = String(numofOctave)
     }
 }
 
